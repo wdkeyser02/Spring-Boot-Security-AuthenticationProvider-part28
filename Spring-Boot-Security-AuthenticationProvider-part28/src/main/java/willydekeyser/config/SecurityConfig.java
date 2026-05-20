@@ -1,7 +1,11 @@
 package willydekeyser.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -23,4 +27,8 @@ public class SecurityConfig {
         return http.build();
     }
 
+    @Bean
+    AuthenticationManager authenticationManager() {
+        return new ProviderManager(List.of(new CustomUserAuthenticationProvider(), new CustomAdminAuthenticationProvider()));
+    }
 }
