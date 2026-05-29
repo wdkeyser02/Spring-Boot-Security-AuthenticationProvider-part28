@@ -20,7 +20,7 @@ public class CustomAdminAuthenticationProvider implements AuthenticationProvider
 			List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"), 
 					new SimpleGrantedAuthority("ROLE_ADMIN"), 
 					new SimpleGrantedAuthority("ROLE_TEST"));
-			UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken("user", "", authorities);
+			UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken("admin", "", authorities);
 			IO.println("CustomAdminAuthenticationProvider: " + usernamePasswordAuthenticationToken);
 			return usernamePasswordAuthenticationToken;
 		}
